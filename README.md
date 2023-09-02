@@ -2,7 +2,7 @@
 
 This solution utilizes [Twilio Sync](https://www.twilio.com/docs/sync/best-practices-use-cases) to capture **Studio IVR path data** for each **Voice Call**. 
 
-This provides a link between Studio and Programmable Voice data, in a way that can be easily retrieved from an API or forwarded to your own endpoint for long-term retention.  
+This provides a link between Studio and Programmable Voice data, in a way that can be easily retrieved from the Sync API or forwarded to your own endpoint for long-term retention.  
 
 
 ## How does this work?
