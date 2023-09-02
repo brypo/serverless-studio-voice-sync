@@ -84,7 +84,7 @@ Set the webhook to your deployed Function URL for `/pn-call-status-callback`.
 
 ### Long-term Data Storage
 
-Uncomment the "optional" code ([here](https://github.com/brypo/serverless-studio-voice-sync/blob/b8a37e139ff9721ff516131051e8acea7f6a4c1a/pn-call-status-callback.protected.js#L1) and [here](https://github.com/brypo/serverless-studio-voice-sync/blob/b8a37e139ff9721ff516131051e8acea7f6a4c1a/pn-call-status-callback.protected.js#L31)) to forward the Voice IVR path data to your own endpoint.
+Uncomment the "optional" code ([here](https://github.com/brypo/serverless-studio-voice-sync/blob/b8a37e139ff9721ff516131051e8acea7f6a4c1a/pn-call-status-callback.protected.js#L2) and [here](https://github.com/brypo/serverless-studio-voice-sync/blob/b8a37e139ff9721ff516131051e8acea7f6a4c1a/pn-call-status-callback.protected.js#L32)) to forward the Voice IVR path data to your own endpoint.
 
 Make sure [the URL](https://github.com/brypo/serverless-studio-voice-sync/blob/b8a37e139ff9721ff516131051e8acea7f6a4c1a/pn-call-status-callback.protected.js#L38) is updated with your proper, valid endpoint.
 
