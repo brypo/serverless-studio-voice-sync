@@ -9,15 +9,13 @@ This provides a link between Studio and Programmable Voice data, in a way that c
 At the *beginning of the Studio Flow*, a [`Run Function` Widget](https://www.twilio.com/docs/studio/widget-library/run-function) widget must be configured to point to the `/widget-store-studio-data` Serverless Function. 
 
 This `/widget-store-studio-data` function will create a **Sync Map Item** with the `Call SID` as the "key" and Studio identifiers as the "data".</br>
-<img width="226" alt="image" src="https://github.com/brypo/serverless-studio-voice-sync/assets/67924770/76bb9ab0-6680-4175-9fc6-35bdd90e8aa4">
+<img width="226" alt="image" src="https://github.com/brypo/serverless-studio-voice-sync/assets/67924770/9927e25a-8b9f-48e0-aa85-0e909bebdaa5">
 
 In the *Phone Number configuration*, the `Call Status Changes` callback webhook must be updated to the URL for the `/pn-call-status-callback` Serverless Function. 
 
 This `/pn-call-status-callback` function will listen for the [call status "completed"](https://support.twilio.com/hc/en-us/articles/223132547-What-are-the-Possible-Call-Statuses-and-What-do-They-Mean-#:~:text=is%20currently%20active.-,completed,-The%20connected%20call) event, and use the [Studio Execution Context API](https://www.twilio.com/docs/studio/rest-api/execution-context) to capture all the associated Studio Flow widget data (the IVR path).
 
 The function then updates the Sync Map Item, where this data will be stored for a [default of 24 hours](https://github.com/brypo/serverless-studio-voice-sync/blob/b8a37e139ff9721ff516131051e8acea7f6a4c1a/widget-store-studio-data.protected.js#L15). TTL may need to be shortened if reaching [Sync Map Item limit](#considerations). 
-
-<img width="226" alt="image" src="https://github.com/brypo/serverless-studio-voice-sync/assets/67924770/dcb03e97-5767-4ac6-b053-4589d636b7da">
 
 
 ## Considerations
@@ -60,8 +58,8 @@ If intending to "forward data" to your own endpoint, the `axios` library will ne
 </br>
 
 ### Studio Flow - Run Function
-<img width="426" alt="image" src="https://github.com/brypo/serverless-studio-voice-sync/assets/67924770/c77b2c0f-8bbb-4542-a07b-ff79b47bcc77">   
-<img width="231" alt="image" src="https://github.com/brypo/serverless-studio-voice-sync/assets/67924770/1e53cc5d-2d8a-4d3e-86f4-43139616f804"></br></br>
+<img width="426" alt="image" src="https://github.com/brypo/serverless-studio-voice-sync/assets/67924770/c50ae8af-5fee-4f62-9793-dbdd8553a4b4">   
+<img width="231" alt="image" src="https://github.com/brypo/serverless-studio-voice-sync/assets/67924770/a4a51f7c-2a18-4bbe-ac3c-91a5274616d9"></br></br>
 
 
 Ensure the following `Function Parameters` are configured on the widget, as shown above:
@@ -77,7 +75,7 @@ Ensure the following `Function Parameters` are configured on the widget, as show
 ### Phone Number - Call Status Changes Callback URL
 
 Update the Phone Number `Call Status Changes` callback webhook from the Twilio Console or API.
-<img width="426" alt="image" src="https://github.com/brypo/serverless-studio-voice-sync/assets/67924770/80ec9167-7ec3-4400-9090-8db0a310d4fc">
+<img width="426" alt="image" src="https://github.com/brypo/serverless-studio-voice-sync/assets/67924770/034ade33-9b31-464c-b41d-1b3b284395ce">
 
 Set the webhook to your deployed Function URL for `/pn-call-status-callback`.
 
